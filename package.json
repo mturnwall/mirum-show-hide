@@ -1,0 +1,25 @@
+{
+  "name": "mirum-show-hide",
+  "version": "1.0.0",
+  "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
+  "main": "show_hide.js",
+  "scripts": {
+    "test": "ava --watch --verbose",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mturnwall@stash.mirum.agency:8443/scm/~mturnwall/mirum-show-hide.git"
+  },
+  "author": "Michael Turnwall (Mirum, Inc)",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-env": "^1.2.1",
+    "eslint": "^3.17.1",
+    "eslint-loader": "^1.6.3",
+    "webpack": "^2.2.1"
+  }
+}
