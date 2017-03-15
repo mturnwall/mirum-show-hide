@@ -4,7 +4,7 @@
   "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
   "main": "show_hide.js",
   "scripts": {
-    "clean": "rm -rf ./dist",
+    "clean": "rimraf ./dist",
     "test": "ava --verbose",
     "build": "npm run clean && webpack -p"
   },
@@ -22,6 +22,7 @@
     "browser-env": "^2.0.25",
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
+    "rimraf": "^2.6.1",
     "webpack": "^2.2.1"
   },
   "ava": {
