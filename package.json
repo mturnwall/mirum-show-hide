@@ -6,7 +6,8 @@
   "scripts": {
     "clean": "rimraf ./dist",
     "test": "ava --verbose",
-    "build": "npm run clean && webpack -p"
+    "build": "npm run clean && webpack --env=prod --progress --colors",
+    "serve": "npm run test && webpack-dev-server --env=dev --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
     "rimraf": "^2.6.1",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
   },
   "ava": {
     "require": [
