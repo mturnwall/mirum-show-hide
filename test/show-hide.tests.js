@@ -4,15 +4,20 @@ import expand from '../src/show_hide';
 // fake the offsetHeight value
 Object.defineProperty(window.HTMLElement.prototype, 'offsetHeight', {
     value: 200,
+    writable: true,
 });
 
 Object.defineProperty(window.HTMLElement.prototype, 'dataset', {
     value: {
         defaultHeight: null,
     },
+    // get: function () { return this.getAttribute('data-default-height'); },
+    // set: function (value) {
+    //     this.defaultHeight = value;
+    // },
 });
 
-test.beforeEach((t) => {
+test.before((t) => {
     const wrapper = document.createElement('div');
     wrapper.classList.add('wrapper');
     wrapper.style.width = '500px';
@@ -41,7 +46,7 @@ test.beforeEach((t) => {
     expand();
 });
 
-test('Is expanded', (t) => {
+test('Expand the read more container', (t) => {
     const extra = document.querySelector('.extra');
     extra.offsetHeight = 0;
     const button = document.querySelector('.read-more');
@@ -51,12 +56,12 @@ test('Is expanded', (t) => {
     t.is(parseInt(newHeight, 10), expandedHeight, 'Extra container is expanded');
 });
 
-// test('Is collapsed', (t) => {
-//     const extra = document.querySelector('.extra');
-//     extra.offsetHeight = 200;
-//     const button = document.querySelector('.read-more');
-//     button.click();
-//     t.is(window.getComputedStyle(extra, null).getPropertyValue('height'), '0px', 'Extra container is collapsed');
-// });
+test('Collapse the read more container', (t) => {
+    const extra = document.querySelector('.extra');
+    extra.offsetHeight = 200;
+    const button = document.querySelector('.read-more');
+    button.click();
+    t.is(window.getComputedStyle(extra, null).getPropertyValue('height'), '0px', 'Extra container is collapsed');
+});
 
 

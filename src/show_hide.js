@@ -11,18 +11,12 @@ const getActualHeight = () => {
 };
 
 const toggleHeight = (height) => {
-    console.log(extra.dataset);
     let autoHeight = ('defaultHeight' in extra.dataset) ? extra.dataset.defaultHeight : false;
-    console.log('autoheight is', autoHeight);
     if (!autoHeight) {
         autoHeight = getActualHeight();
-        console.log('autoHeight becomes', autoHeight);
         extra.dataset.defaultHeight = autoHeight;
-        console.log(extra.dataset.defaultHeight);
     }
-    console.log('extra.offsetHeight', extra.offsetHeight);
     extra.style.height = (extra.offsetHeight === height) ? `${autoHeight}px` : `${height}px`;
-    console.log('style.height is', extra.style.height);
 };
 
 export default function (extraSel = '.extra', buttonSel = '.read-more', startingHeight = 0) {
