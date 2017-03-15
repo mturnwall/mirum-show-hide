@@ -3,11 +3,11 @@ const webpack = require('webpack');
 module.exports = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        app: './show_hide.js',
+        'show_hide': './show_hide.js',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: '[name].bundle.js',
+        filename: '[name].js',
     },
     module: {
         rules: [

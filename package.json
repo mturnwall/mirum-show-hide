@@ -4,8 +4,9 @@
   "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
   "main": "show_hide.js",
   "scripts": {
-    "test": "ava --watch --verbose",
-    "build": "webpack -p"
+    "clean": "rm -rf ./dist",
+    "test": "ava",
+    "build": "npm run clean && webpack -p"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,22 @@
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
     "babel-preset-env": "^1.2.1",
+    "browser-env": "^2.0.25",
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.5.0",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-webpack": "^2.0.2",
     "webpack": "^2.2.1"
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
+    ]
   }
 }
