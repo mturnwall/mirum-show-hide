@@ -1,5 +1,3 @@
-export let startingHeight = null;
-
 export const getActualHeight = (extra) => {
     const clone = extra.cloneNode(true);
     clone.style.height = 'auto';
@@ -25,7 +23,7 @@ export default function ({
 } = {}) {
     const extra = document.querySelector(extraSel);
     const button = document.querySelector(buttonSel);
-    startingHeight = height || extra.offsetHeight;
+    const startingHeight = height || extra.offsetHeight;
     button.addEventListener('click', function (evt) {
         evt.preventDefault();
         toggleHeight(startingHeight, extra);
