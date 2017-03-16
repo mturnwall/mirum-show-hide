@@ -5,9 +5,9 @@
   "main": "show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "ava --verbose",
+    "test": "ava",
     "build": "npm run clean && webpack --env=prod --progress --colors",
-    "serve": "npm run test && webpack-dev-server --env=dev --progress --colors"
+    "serve": "webpack-dev-server --env=dev --progress --colors"
   },
   "repository": {
     "type": "git",

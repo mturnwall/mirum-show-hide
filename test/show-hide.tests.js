@@ -55,6 +55,13 @@ test('Collapse the read more container', (t) => {
     t.is(window.getComputedStyle(extra, null).getPropertyValue('height'), '0px', 'Extra container is collapsed');
 });
 
+test('Using elements offsetHeight as collapsed height', (t) => {
+    const extra = document.querySelector('.extra');
+    extra.offsetHeight = 0;
+    expand();
+    t.is(startingHeight, 0, 'Starting height equals value of element.offsetHeight');
+});
+
 test('Passing in a height to override styled height', (t) => {
     const extra = document.querySelector('.extra');
     extra.offsetHeight = 200;

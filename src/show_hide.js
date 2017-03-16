@@ -1,8 +1,6 @@
-let extra = null;
-let button = null;
 export let startingHeight = null;
 
-const getActualHeight = () => {
+export const getActualHeight = (extra) => {
     const clone = extra.cloneNode(true);
     clone.style.height = 'auto';
     extra.parentNode.appendChild(clone);
@@ -11,10 +9,10 @@ const getActualHeight = () => {
     return height;
 };
 
-const toggleHeight = (height) => {
+export const toggleHeight = (height, extra) => {
     let autoHeight = ('defaultHeight' in extra.dataset) ? extra.dataset.defaultHeight : false;
     if (!autoHeight) {
-        autoHeight = getActualHeight();
+        autoHeight = getActualHeight(extra);
         extra.dataset.defaultHeight = autoHeight;
     }
     extra.style.height = (extra.offsetHeight === height) ? `${autoHeight}px` : `${height}px`;
@@ -25,11 +23,11 @@ export default function ({
     buttonSel = '.read-more',
     height = null,
 } = {}) {
-    extra = document.querySelector(extraSel);
-    button = document.querySelector(buttonSel);
+    const extra = document.querySelector(extraSel);
+    const button = document.querySelector(buttonSel);
     startingHeight = height || extra.offsetHeight;
     button.addEventListener('click', function (evt) {
         evt.preventDefault();
-        toggleHeight(startingHeight);
+        toggleHeight(startingHeight, extra);
     });
 }
