@@ -5,9 +5,10 @@
   "main": "show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "ava",
+    "test": "nyc ava",
     "build": "npm run clean && webpack --env=prod --progress --colors",
-    "serve": "webpack-dev-server --env=dev --progress --colors"
+    "serve": "webpack-dev-server --env=dev --progress --colors",
+    "report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "browser-env": "^2.0.25",
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
+    "nyc": "^10.1.2",
     "rimraf": "^2.6.1",
     "sinon": "^2.0.0",
     "webpack": "^2.2.1",

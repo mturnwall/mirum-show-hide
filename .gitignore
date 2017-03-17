@@ -3,6 +3,9 @@
 # your global ignore file
 ############################
 
+coverage
+.nyc_output
+
 # IDE and Editor project config files #
 ################
 # workspace files are user-specific
