@@ -29,12 +29,14 @@ module.exports = function (env) {
                 'process.env.NODE_ENV': JSON.stringify('production')
             }),
             new webpack.optimize.UglifyJsPlugin({
+                sourceMap: true,
                 beautify: false,
                 compress: {
                     drop_console: true,
                     drop_debugger: true,
                 }
             })
-        ]
+        ],
+        devtool: 'source-map',
     };
 };

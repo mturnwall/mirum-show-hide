@@ -35,31 +35,38 @@ test('Use element\'s offsetHeight', (t) => {
     expand();
 
     t.true(
-        querySelector.firstCall.calledWithExactly('.extra')
+        querySelector.firstCall.calledWithExactly('.extra'),
+        'querySelector called for the hidden element'
     );
     t.true(
-        querySelector.secondCall.calledWithExactly('.read-more')
+        querySelector.secondCall.calledWithExactly('.read-more'),
+        'querySelector called for the trigger button'
     );
     t.true(
-        addEventListener.calledOnce
+        addEventListener.calledOnce,
+        'addEventListener bound to the the trigger button'
     );
 
     t.is(
         addEventListener.firstCall.args[0],
-        'click'
+        'click',
+        'The click event was bound to the trigger button'
     );
 
     addEventListener.firstCall.args[1]({preventDefault});
     t.true(
-        preventDefault.calledOnce
+        preventDefault.calledOnce,
+        'Click event was triggered'
     );
 
     t.true(
-        toggleHeightStub.calledOnce
+        toggleHeightStub.calledOnce,
+        'toggleHeight was called'
     );
 
     t.true(
-        toggleHeightStub.calledWithExactly(0, mockExtra)
+        toggleHeightStub.calledWithExactly(0, mockExtra),
+        'toggleHeight called with correct parameters'
     );
 });
 
@@ -72,7 +79,9 @@ test('Use passed in value for height', (t) => {
     });
     addEventListener.firstCall.args[1]({preventDefault});
     t.is(
-        toggleHeightStub.firstCall.args[0], 300
+        toggleHeightStub.firstCall.args[0],
+        300,
+        'toggleHeight called with the height value that was passed in'
     );
 });
 

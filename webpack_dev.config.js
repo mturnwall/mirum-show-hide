@@ -28,5 +28,6 @@ module.exports = function (env) {
         devServer: {
             contentBase: [path.join(__dirname, 'example'), path.join(__dirname, 'dist')],
         },
+        devtool: 'source-map',
     };
 };
