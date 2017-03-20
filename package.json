@@ -5,7 +5,7 @@
   "main": "show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "nyc ava",
+    "test": "nyc ava --verbose",
     "build": "npm run clean && webpack --env=prod --progress --colors",
     "serve": "webpack-dev-server --env=dev --progress --colors",
     "report": "nyc report --reporter=html"
