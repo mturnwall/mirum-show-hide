@@ -1,5 +1,5 @@
 import test from 'ava';
-import expand, {getActualHeight, toggleHeight, __RewireAPI__ as ExpandRewireAPI} from '../src/show_hide';
+import expand, {__RewireAPI__ as ExpandRewireAPI} from '../src/show_hide';
 import {stub} from 'sinon';
 
 let cloneNode = stub();
@@ -73,7 +73,6 @@ test('Use element\'s offsetHeight', (t) => {
 test('Use passed in value for height', (t) => {
     querySelector.onFirstCall().returns(mockExtra);
     querySelector.onSecondCall().returns({addEventListener});
-    // ExpandRewireAPI.__Rewire__('toggleHeight', toggleHeightStub);
     expand({
         height: 300,
     });

@@ -5,7 +5,7 @@
   "main": "show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "nyc ava",
+    "test": "nyc ava ./tests/show-hide.tests.js",
     "build": "npm run clean && webpack --env=prod --progress --colors",
     "serve": "webpack-dev-server --env=dev --progress --colors",
     "report": "nyc report --reporter=html"
@@ -34,7 +34,12 @@
   "ava": {
     "require": [
       "babel-register",
-      "./test/helpers/setup-browser-env.js"
+      "./tests/helpers/setup-browser-env.js"
     ]
+  },
+  "nyc": {
+      "exclude": [
+          "tests/**/*.js"
+      ]
   }
 }
