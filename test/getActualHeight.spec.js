@@ -1,5 +1,5 @@
 import test from 'ava';
-import {getActualHeight} from '../src/show_hide';
+import getActualHeight from '../src/getActualHeight';
 import {stub} from 'sinon';
 
 const cloneNode = stub();

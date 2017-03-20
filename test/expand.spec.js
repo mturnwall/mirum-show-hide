@@ -27,6 +27,7 @@ test.afterEach.always(() => {
 });
 test.after(() => {
     ExpandRewireAPI.__ResetDependency__('toggleHeight');
+    document.querySelector.restore();
 });
 
 test('Use element\'s offsetHeight', (t) => {
