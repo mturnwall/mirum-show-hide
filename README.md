@@ -4,9 +4,42 @@ A module that will collapse and expand a div container. This is usually used for
 
 ## Installation
 
+`yarn add --dev show-hide` 
 
 ## Usage
 
+In your project import the module. This will usually be your main javascript but can actually be any javascript where it's required.
+
+`import showHide from 'show-hide';`
+
+By default the module will look for `.extra` for the element that is collapsed and `.read-more` for the element that will trigger `.extra` to expand. You can overwrite these selectors by passing them when you call the module.
+
+```javascript
+showHide({
+    extraSel: '.my-extra',
+    buttonSel: '.my-button'
+});
+```
+
+The collapsed height of the `.extra` element is determined by the `height` value in the css. If for someone reason you need to override this value you can pass the desired starting height like this.
+ 
+```javascript
+showHide({
+    height: 100
+});
+```
+
+## API
+
+### showHide([{extraSel, buttonSel, height}])
+
+#### Parameters
+
+`[extraSel = '.extra']` - {string} The selector of the element that will expand and contract
+
+`[buttonSel = '.read-more']` - {string} The selector of the element that when clicked will trigger the expand/contract
+
+`height` - {number} Override the element's height that was set in the CSS.
 
 ## Contributing
 
