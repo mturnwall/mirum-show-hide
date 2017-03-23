@@ -43,6 +43,7 @@ showHide({
 
 ## Contributing
 
+Everyone is encouraged to contribute to this module. If see a way to improve the module please do.
 
 ## Version History
 
