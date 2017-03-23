@@ -4,8 +4,11 @@
   "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
   "main": "show_hide.js",
   "scripts": {
-    "test": "ava --watch --verbose",
-    "build": "webpack -p"
+    "clean": "rimraf ./dist",
+    "test": "nyc ava --verbose",
+    "build": "npm run clean && webpack --env=prod --progress --colors",
+    "serve": "webpack-dev-server --env=dev --progress --colors",
+    "report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -17,9 +20,26 @@
     "ava": "^0.18.2",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.4.0",
+    "babel-plugin-rewire": "^1.0.0",
     "babel-preset-env": "^1.2.1",
+    "browser-env": "^2.0.25",
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
-    "webpack": "^2.2.1"
+    "nyc": "^10.1.2",
+    "rimraf": "^2.6.1",
+    "sinon": "^2.0.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  },
+  "ava": {
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
+    ]
+  },
+  "nyc": {
+      "exclude": [
+          "test/**/*.js"
+      ]
   }
 }

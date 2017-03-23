@@ -1,8 +1,10 @@
-*.map
 ############################
 # It's best to add this to
 # your global ignore file
 ############################
+
+coverage
+.nyc_output
 
 # IDE and Editor project config files #
 ################
@@ -25,7 +27,7 @@
 .sass-cache
 config.rb
 *.css.map
-*.js.map
+# *.js.map
 
 # Compiled source #
 ###################
