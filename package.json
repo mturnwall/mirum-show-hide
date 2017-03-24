@@ -1,6 +1,6 @@
 {
-  "name": "mirum-show-hide",
-  "version": "1.0.0",
+  "name": "@mirum-front-end/mirum-show-hide",
+  "version": "0.1.1",
   "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
   "main": "show_hide.js",
   "scripts": {
@@ -38,8 +38,8 @@
     ]
   },
   "nyc": {
-      "exclude": [
-          "test/**/*.js"
-      ]
+    "exclude": [
+      "test/**/*.js"
+    ]
   }
 }
