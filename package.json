@@ -25,6 +25,7 @@
     "browser-env": "^2.0.25",
     "eslint": "^3.17.1",
     "eslint-loader": "^1.6.3",
+    "hashmark": "^4.1.0",
     "nyc": "^10.1.2",
     "rimraf": "^2.6.1",
     "sinon": "^2.0.0",
