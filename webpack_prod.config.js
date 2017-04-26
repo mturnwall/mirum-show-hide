@@ -5,7 +5,7 @@ module.exports = function (env) {
     return {
         context: path.resolve(__dirname, './src'),
         entry:   {
-            'show_hide': './show_hide.js',
+            [process.env.npm_package_main.split('.')[0]]: `./${process.env.npm_package_main}`,
         },
         output:  {
             path:     path.resolve(__dirname, './dist'),
