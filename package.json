@@ -2,17 +2,18 @@
   "name": "@mirum-front-end/mirum-show-hide",
   "version": "0.1.2",
   "description": "A module to show and hide a block of content. For example an article that has a \"read more\" section.",
-  "main": "show_hide.js",
+  "main": "src/show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
     "test": "nyc ava --verbose",
-    "build": "npm run clean && webpack --env=prod --progress --colors",
+    "build": "npm test && npm run clean && npm run lint && webpack --env=prod --progress --colors",
+    "lint": "eslint -f 'table' src/*.js",
     "serve": "webpack-dev-server --env=dev --progress --colors",
     "report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
-    "url": "https://mturnwall@bitbucket.mirum.agency/scm/mirus/front-end-show-hide.git"
+    "url": "git@github.com:mturnwall/mirum-show-hide.git"
   },
   "author": "Michael Turnwall (Mirum, Inc)",
   "license": "MIT",
