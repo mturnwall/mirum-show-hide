@@ -1,5 +1,7 @@
 # Mirum Show Hide
 
+[![Build Status](https://travis-ci.org/mturnwall/mirum-show-hide.svg?branch=master)](https://travis-ci.org/mturnwall/mirum-show-hide) [![Known Vulnerabilities](https://snyk.io/test/github/mturnwall/mirum-show-hide/badge.svg)](https://snyk.io/test/github/mturnwall/mirum-show-hide)
+
 A module that will collapse and expand a div container. This is usually used for a content where part of the content is hidden with a "read more" button reveals the rest of the content.
 
 ## Installation

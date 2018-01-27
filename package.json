@@ -5,7 +5,7 @@
   "main": "src/show_hide.js",
   "scripts": {
     "clean": "rimraf ./dist",
-    "test": "nyc ava --verbose",
+    "test": "snyk test && nyc ava --verbose",
     "build": "npm test && npm run clean && npm run lint && webpack --env=prod --progress --colors",
     "lint": "eslint -f 'table' src/*.js",
     "serve": "webpack-dev-server --env=dev --progress --colors",
@@ -30,7 +30,8 @@
     "rimraf": "^2.6.1",
     "sinon": "^2.0.0",
     "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.2"
+    "webpack-dev-server": "^2.4.2",
+    "snyk": "^1.69.3"
   },
   "ava": {
     "require": [
