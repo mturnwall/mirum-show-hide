@@ -3,13 +3,11 @@ const webpack = require('webpack');
 
 module.exports = function (env) {
     return {
-        context: path.resolve(__dirname, './src'),
-        entry:   {
-            'show_hide': './show_hide.js',
-        },
+        context: path.resolve(__dirname, './'),
+        entry: ['./src/show_hide.js'],
         output:  {
             path:     path.resolve(__dirname, './dist'),
-            filename: '[name].js',
+            filename: '[name].min.js',
         },
         module:  {
             rules: [
