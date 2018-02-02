@@ -1,8 +1,8 @@
-import expand from '../src/show_hide';
+import showHide from '../src/show_hide';
 
 window.addEventListener('DOMContentLoaded', function loaded() {
-    expand({
-        extraSel: '.extra1',
+    showHide({
+        extraSel: '.extra',
     });
-    window.removeEventListener('DOMConentLoaded', loaded);
+    window.removeEventListener('DOMContentLoaded', loaded);
 });

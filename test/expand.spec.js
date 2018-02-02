@@ -1,5 +1,5 @@
 import test from 'ava';
-import expand, {__RewireAPI__ as ExpandRewireAPI} from '../src/show_hide';
+import showHide, {__RewireAPI__ as ExpandRewireAPI} from '../src/show_hide';
 import {stub} from 'sinon';
 
 let cloneNode = stub();
@@ -56,7 +56,7 @@ test.after(() => {
 });
 
 test('Get hidden elements with default selector', t => {
-    expand();
+    showHide();
 
     t.true(
         querySelectorAll.firstCall.calledWithExactly('.extra'),
@@ -65,7 +65,7 @@ test('Get hidden elements with default selector', t => {
 });
 
 test('Get read more buttons with default selector', t => {
-    expand();
+    showHide();
 
     t.true(
         querySelectorAll.secondCall.calledWithExactly('.read-more'),
@@ -74,7 +74,7 @@ test('Get read more buttons with default selector', t => {
 });
 
 test('Pass in custom selectors', t => {
-    expand({
+    showHide({
         extraSel: '.customExtra1',
         buttonSel: '.customButton',
     });
@@ -89,7 +89,7 @@ test('Pass in custom selectors', t => {
 });
 
 test('Event listener added to every button', t => {
-    expand();
+    showHide();
     const listeners = mockButtons.filter(value => {
         return value.addEventListener.calledOnce;
     });
@@ -107,7 +107,7 @@ test('Event listener added to every button', t => {
 });
 
 test('Starting heights have correct default value', t => {
-    expand();
+    showHide();
     mockButtons.forEach(value => {
         value.addEventListener.firstCall.args[1]({preventDefault});
     });
@@ -122,7 +122,7 @@ test('Starting heights have correct default value', t => {
 });
 
 test('Use passed in value for height', (t) => {
-    expand({
+    showHide({
         height: 300,
     });
     mockButtons.forEach(value => {
@@ -138,45 +138,3 @@ test('Use passed in value for height', (t) => {
         );
     }
 });
-
-// test('Use element\'s offsetHeight', (t) => {
-//     querySelector.onFirstCall().returns(mockExtra);
-//     querySelector.onSecondCall().returns({addEventListener});
-//     expand();
-//
-//     t.true(
-//         querySelector.firstCall.calledWithExactly('.extra'),
-//         'querySelector called for the hidden element'
-//     );
-//     t.true(
-//         querySelector.secondCall.calledWithExactly('.read-more'),
-//         'querySelector called for the trigger button'
-//     );
-//     t.true(
-//         addEventListener.calledOnce,
-//         'addEventListener bound to the the trigger button'
-//     );
-//
-//     t.is(
-//         addEventListener.firstCall.args[0],
-//         'click',
-//         'The click event was bound to the trigger button'
-//     );
-//
-//     addEventListener.firstCall.args[1]({preventDefault});
-//     t.true(
-//         preventDefault.calledOnce,
-//         'Click event was triggered'
-//     );
-//
-//     t.true(
-//         toggleHeightStub.calledOnce,
-//         'toggleHeight was called'
-//     );
-//
-//     t.true(
-//         toggleHeightStub.calledWithExactly(0, mockExtra),
-//         'toggleHeight called with correct parameters'
-//     );
-// });
-
