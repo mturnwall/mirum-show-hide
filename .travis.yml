@@ -7,3 +7,12 @@ cache:
   - node_modules
 script:
   - npm run build
+deploy:
+  provider: npm
+  email: michael.turnwall@mirumagency.com
+  api_key:
+    secure: PJQl9m7vSnxXolpAJ8/Q/+8jEMRP8eyJ64Ivm0a9M73Kq7Mfka9s4myvx3XzuuWdXxLjLVElSJ8vU5sGKwXTAvsJ75rTEUAp/Vu06lt6MdgkFlep+vYX7XBBmUuv1dTD4etc63YnnTWSSbcji6MIJicF2AkQ/W/NfAvCjTSEwUGII+IkiYtO6r6VoPJ7Zk39Esqd4FaZtVOcJ7dJhwbSQ1WpzAggxsWjomz1tIVm0ziIhndHwpyiIBcYERjTvP19wpdbDgZw+v5E/1WjhKbuxX15wqXHxYg+n3s1o9xRJkPKBHFPJu0g2sWGM0AA4TwSIJjptFpp2aX2GD6dj1e3DiuPbWxk4rMzBKDeC34W9fUuvJkZjM/5sjD6X4iDJyURENaT1TNRQFZtFMDUbAqoAyOqfwuz0BfxE5nVxCsF7z0yCc5kgX52DZRvxbAJN5CtE7JOWaYwhxHLcgNA3/y4k8VHQjOXSu6xNIJmrLqNziCKg6oqsLVrub3U3SXRnCkKmEHOGahF3DmeNwewK64DIu97eLb5NbPxMr5FptaoKTCUxEg5zzYltKBQPrAc+hqdII/t96Lh/Q+8wA4GzdWq4lOjho67oLAvuc5rrxjtHTGCpMRbSB1xVTObsQgZYLYczD0CAzbClpP/4vqDMOPTEJa+ymaARLfrGEr6PT+shwM=
+  on:
+    tags: true
+after_deploy:
+  - snyk monitor

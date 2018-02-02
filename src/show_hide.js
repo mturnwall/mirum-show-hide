@@ -5,11 +5,15 @@ export default function ({
     buttonSel = '.read-more',
     height = null,
 } = {}) {
-    const extra = document.querySelector(extraSel);
-    const button = document.querySelector(buttonSel);
-    const startingHeight = height || extra.offsetHeight;
-    button.addEventListener('click', function (evt) {
-        evt.preventDefault();
-        toggleHeight(startingHeight, extra);
+    const extras = [...document.querySelectorAll(extraSel)];
+    const buttons = [...document.querySelectorAll(buttonSel)];
+    const startingHeights = extras.map((extra) => {
+        return height || extra.offsetHeight;
+    });
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', function (evt) {
+            evt.preventDefault();
+            toggleHeight(startingHeights[index], extras[index]);
+        });
     });
 }
