@@ -2,11 +2,13 @@
 
 [![Build Status](https://travis-ci.org/mturnwall/mirum-show-hide.svg?branch=master)](https://travis-ci.org/mturnwall/mirum-show-hide) [![Known Vulnerabilities](https://snyk.io/test/github/mturnwall/mirum-show-hide/badge.svg)](https://snyk.io/test/github/mturnwall/mirum-show-hide)
 
-A module that will collapse and expand a div container. This is usually used for a content where part of the content is hidden with a "read more" button reveals the rest of the content.
+A module that will collapse and expand a div container. This is usually used for a content where part of the content is hidden with a "read more" button reveals the rest of the content. For terminology, this documentation refers to the element that expands and collapses as the "extra" element since it contains extra content.
+
+The benefit of using this module is you don't have to set a massively high `max-height` in the CSS. Not using `max-height` leads to a smoother animation when opening the collapsed element. The module uses the starting height of the "extra" element which is set in the CSS.
 
 ## Installation
 
-`yarn add --dev show-hide` 
+`npm install --save-dev show-hide` 
 
 ## Usage
 
@@ -14,7 +16,7 @@ In your project import the module. This will usually be your main javascript but
 
 `import showHide from 'show-hide';`
 
-By default the module will look for `.extra` for the element that is collapsed and `.read-more` for the element that will trigger `.extra` to expand. You can overwrite these selectors by passing them when you call the module.
+By default the module will look for `.extra` as the selector for the element that is collapsed and `.read-more` for the element that will trigger `.extra` to expand. You can overwrite these selectors by passing them when you call the module.
 
 ```javascript
 showHide({
@@ -31,6 +33,8 @@ showHide({
 });
 ```
 
+See the html file in the example folder for a demo of the module.
+
 ## API
 
 ### showHide([{extraSel, buttonSel, height}])
@@ -45,6 +49,7 @@ showHide({
 
 ## Contributing
 
+Everyone is encouraged to contribute to this module. If see a way to improve the module please do.
 
 ## Version History
 

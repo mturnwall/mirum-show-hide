@@ -1,3 +1,0 @@
-import './getActualHeight.spec';
-import './toggleHeight.spec';
-import './expand.spec';
