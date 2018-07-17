@@ -32,7 +32,7 @@
     "nyc": "^10.1.2",
     "rimraf": "^2.6.1",
     "sinon": "^2.0.0",
-    "snyk": "^1.69.3",
+    "snyk": "^1.89.0",
     "tap-summary": "^4.0.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"
