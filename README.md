@@ -35,6 +35,16 @@ showHide({
 
 See the html file in the example folder for a demo of the module.
 
+### Accordion
+
+It is possible to use the module as an accordion. If you have multiple elements that expand you can turn on the accordion feature. This results on whichever element is currently expanded to close when you open another one. Set the `accordion` parameter to `true`. The default state is `false`.
+
+```javascript
+showHide({
+    accordion: true
+});
+```
+
 ## API
 
 ### showHide([{extraSel, buttonSel, height}])
@@ -46,6 +56,8 @@ See the html file in the example folder for a demo of the module.
 `[buttonSel = '.read-more']` - {string} The selector of the element that when clicked will trigger the expand/contract
 
 `height` - {number} Override the element's height that was set in the CSS.
+
+`accordion = false` - {boolean} set to `true` to enable accordion mode.
 
 ## Contributing
 

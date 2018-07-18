@@ -6,12 +6,15 @@
   "scripts": {
     "ava": "ava --verbose",
     "clean": "rimraf ./dist",
-    "test": "snyk test && nyc ava --verbose",
+    "test": "nyc ava --verbose",
     "build": "npm test && npm run clean && npm run lint && webpack --env=prod --progress --colors",
     "lint": "eslint -f 'table' src/*.js",
     "serve": "webpack-dev-server --env=dev --progress --colors",
     "report": "nyc report --reporter=html",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release": "standard-version",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -34,7 +37,7 @@
     "rimraf": "^2.6.1",
     "semantic-release": "^12.4.1",
     "sinon": "^2.0.0",
-    "snyk": "^1.69.3",
+    "standard-version": "^4.4.0",
     "tap-summary": "^4.0.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"
@@ -49,5 +52,9 @@
     "exclude": [
       "test/**/*.js"
     ]
+  },
+  "snyk": true,
+  "dependencies": {
+    "snyk": "^1.89.0"
   }
 }
