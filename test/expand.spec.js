@@ -115,7 +115,25 @@ test('Starting heights have correct default value', t => {
     for (let i = 0; i < mockButtons.length; i += 1) {
         const stubCall = toggleHeightStub.getCall(i);
         t.true(
-            stubCall.calledWithExactly(mockMultipleExtras[i].offsetHeight, mockMultipleExtras[i]),
+            stubCall.calledWithExactly(mockMultipleExtras[i].offsetHeight, mockMultipleExtras[i], false),
+            'toggleHeight called with with incorrect parameters'
+        );
+    }
+});
+
+test('Toggle accordion mode', t => {
+    showHide({
+        accordion: true,
+    });
+    mockButtons.forEach(value => {
+        value.addEventListener.firstCall.args[1]({preventDefault});
+    });
+
+    for (let i = 0; i < mockButtons.length; i += 1) {
+        const stubCall = toggleHeightStub.getCall(i);
+        t.is(
+            stubCall.args[2],
+            true,
             'toggleHeight called with with incorrect parameters'
         );
     }
